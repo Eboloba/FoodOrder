@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Админ-панель</title>
+  <link rel="icon" href="https://i.yapx.ru/ZQD96.png">
+  <link rel="stylesheet" href="styles/admin.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> 
+  <link rel="stylesheet" href="styles/toast.css">
+</head>
+<body>
+  <header class="main-header">
+  <div class="container-header">
+    <h1>Админ-панель</h1>
+    <div class="header-actions">
+      <div class="user-dropdown">
+        <button class="user-btn">
+          <i class="fas fa-user"></i>
+          <span id="username-display">Пользователь</span>
+          <i class="fas fa-chevron-down"></i>
+        </button>
+        <div class="dropdown-menu">
+          <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+  <main class="admin-main">
+    <div class="container">
+
+        <section class="admin-section">
+            <h2>Список заказов</h2>
+            <div class="orders-list" id="orders-list"></div>
+        </section>
+      <section class="admin-section">
+        <h2>Добавить новое блюдо</h2>
+        <form id="add-dish-form">
+          <div class="form-group">
+            <label for="dish-name">Название:</label>
+            <input type="text" id="dish-name" placeholder="Например: Чизбургер" required />
+          </div>
+          <div class="form-group">
+            <label for="dish-price">Цена (руб):</label>
+            <input type="number" id="dish-price" step="0.01" min="0" required />
+          </div>
+          <div class="form-group">
+            <label for="dish-description">Описание:</label>
+            <textarea id="dish-description" rows="4" placeholder="Например: булочка, говядина..." required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="dish-image">Название изображения:</label>
+            <input type="text" id="dish-image" placeholder="Например: dish.jpg" required />
+          </div>
+          <div class="form-group">
+            <label for="dish-category">Категория:</label>
+            <select id="dish-category" required></select>
+          </div>
+          <div class="form-group">
+            <label for="dish-restaurant">Ресторан:</label>
+            <select id="dish-restaurant" required></select>
+          </div>
+          <div class="form-group">
+            <label for="delivery-time">Время доставки (мин):</label>
+            <input type="number" id="delivery-time" min="1" required />
+          </div>
+          <button type="submit" class="btn btn-primary">Добавить блюдо</button>
+        </form>
+      </section>
+
+      <!-- Список блюд -->
+      <section class="admin-section">
+        <h2>Список блюд</h2>
+        <div class="dishes-list" id="dishes-list"></div>
+      </section>
+    </div>
+
+    <!-- Модальное окно редактирования -->
+<div id="edit-dish-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Редактировать блюдо</h2>
+    <form id="edit-dish-form">
+      <input type="hidden" id="edit-dish-id" />
+      <div class="form-group">
+        <label for="edit-dish-name">Название:</label>
+        <input type="text" id="edit-dish-name" required />
+      </div>
+      <div class="form-group">
+        <label for="edit-dish-price">Цена (руб):</label>
+        <input type="number" id="edit-dish-price" step="0.01" min="0" required />
+      </div>
+      <div class="form-group">
+        <label for="edit-dish-description">Описание:</label>
+        <textarea id="edit-dish-description" rows="4" required></textarea>
+      </div>
+      <div class="form-group">
+        <label for="edit-dish-image">Название изображения:</label>
+        <input type="text" id="edit-dish-image" required />
+      </div>
+      <div class="form-group">
+        <label for="edit-dish-category">Категория:</label>
+        <select id="edit-dish-category" required></select>
+      </div>
+      <div class="form-group">
+        <label for="edit-dish-restaurant">Ресторан:</label>
+        <select id="edit-dish-restaurant" required></select>
+      </div>
+      <div class="form-group">
+        <label for="edit-dish-delivery-time">Время доставки (мин):</label>
+        <input type="number" id="edit-dish-delivery-time" min="1" required />
+      </div>
+      <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+    </form>
+  </div>
+</div>
+  </main>
+
+  <footer class="main-footer">
+    <div class="container">
+      <p>&copy; 2025 FoodOrder. Все права защищены.</p>
+    </div>
+  </footer>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FoodOrder - Вход</title>
+  <link rel="icon" href="https://i.yapx.ru/ZQD96.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/styleReg.css">
+  <link rel="stylesheet" href="styles/toast.css">
+</head>
+<body class="auth-page">
+  <div class="auth-container">
+    <div class="auth-logo">
+      <i class="fas fa-utensils logo-icon"></i>
+      <h1>FoodOrder</h1>
+    </div>
+    
+    <div class="auth-card">
+      <div class="auth-tabs">
+        <button class="tab-btn active" id="login-tab">Вход</button>
+        <button class="tab-btn" id="register-tab">Регистрация</button>
+      </div>
+
+      <!-- Форма входа -->
+      <form id="login-form" class="auth-form active">
+        <div class="input-group">
+          <i class="fas fa-envelope icon"></i>
+          <input type="email" id="login-email" placeholder="Почта" required>
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" id="login-password" placeholder="Пароль" required>
+          <button type="button" class="show-password" data-target="login-password"></button>
+        </div>
+        
+        <div class="form-footer">
+          <a href="#" id="forgot-password">Забыли пароль?</a>
+        </div>
+        
+        <button type="submit" class="auth-btn">
+          <i class="fas fa-sign-in-alt"></i> Войти
+        </button>
+        
+      </form>
+
+      <!-- Форма регистрации -->
+      <form id="register-form" class="auth-form">
+        <div class="input-group">
+          <i class="fas fa-user icon"></i>
+          <input type="text" id="register-name" placeholder="Ваш Ник" required>
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-envelope icon"></i>
+          <input type="email" id="register-email" placeholder="Почта" required>
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-phone icon"></i>
+          <input type="tel" id="register-phone" placeholder="Телефон" required>
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" id="register-password" placeholder="Пароль" required>
+          <button type="button" class="show-password" data-target="register-password">
+          </button>
+        </div> 
+        
+        <div class="input-group">
+          <i class="fas fa-lock icon"></i>
+          <input type="password" id="register-confirm-password" placeholder="Подтвердите пароль" required>
+        </div>
+        
+        <div class="form-footer">
+          <label class="terms-agree">
+            <input type="checkbox" id="agree-terms" required>
+            <span>Я согласен с <a href="https://yandex.ru/legal/couriers_termsofuse/">условиями использования</a></span>
+          </label>
+        </div>
+        
+        <button type="submit" class="auth-btn">
+          <i class="fas fa-user-plus"></i> Зарегистрироваться
+        </button>
+      </form>
+    </div>
+    
+    <div class="auth-footer">
+      <p>© 2025 FoodOrder. Все права защищены.</p>
+    </div>
+  </div>
+
+  <!-- Модальное окно восстановления пароля -->
+  <div id="forgot-password-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Восстановление пароля</h2>
+    <form id="forgot-password-form">
+      <p>Введите почту, указанный при регистрации:</p>
+      <div class="input-group">
+        <i class="fas fa-envelope icon"></i>
+        <input type="email" id="reset-email" placeholder="Почта" required>
+      </div>
+      <button type="submit" id="reset-password-submit">Сменить пароль</button>
+    </form>
+  </div>
+</div>
+
+  <script src="js/auth.js"></script>
+</body>
+</html>

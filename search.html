@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodOrder - Главная</title>
+  <link rel="icon" href="https://i.yapx.ru/ZQD96.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/styleSearch.css">
+  <link rel="stylesheet" href="styles/toast.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-utensils"></i>
+          <span>FoodOrder</span>
+        </div>
+        
+        <nav class="main-nav">
+          <ul>
+            <li><a href="restorants.html"><i class="fas fa-home"></i> Главная</a></li>
+            <li><a href="search.html" class="active"><i class="fas fa-utensils"></i> Блюда</a></li>
+            <li><a href="orders.html"><i class="fas fa-receipt"></i> Мои заказы</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Профиль</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <div class="cart-icon">
+            <a href="cart.html">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </a>
+          </div>
+          
+          <div class="user-dropdown">
+            <button class="user-btn">
+              <i class="fas fa-user"></i>
+              <span id="username-display">Пользователь</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu">
+              <a href="profile.html"><i class="fas fa-user-cog"></i> Настройки</a>
+              <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="main-content">
+    <div class="container">
+      <section class="search-results-section">
+        <div class="search-box">
+            <input class="search-input" type="text" placeholder="Что бы вы хотели заказать?">
+            <button type="button" class="search-button"><i class="fas fa-search"></i> Найти</button>
+        </div>
+        <div class="search-header">
+          <h1 class="section-title">Результаты поиска: <div class="search-query" id="search-query-display"></div></h1>
+          
+          <div class="search-controls">
+            <div class="sort-options">
+              <span>Сортировать:</span>
+              <select id="sort-select">
+                <option value="default">По умолчанию</option>
+                <option value="price-asc">По цене (дешевые сначала)</option>
+                <option value="price-desc">По цене (дорогие сначала)</option>
+                <option value="rating">По рейтингу</option>
+                <option value="delivery-time">По времени доставки</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        
+        <div class="results-container">
+          <div class="results-grid" id="results-grid">
+          </div>
+          
+          <div class="no-results" id="no-results">
+            <i class="fas fa-search"></i>
+            <h3>Ничего не найдено</h3>
+            <p>Попробуйте изменить поисковый запрос</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>FoodOrder</h3>
+          <p>Сервис доставки еды №1 в вашем городе. Быстро, вкусно и удобно!</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Меню</h3>
+          <ul>
+            <li><a href="main.html">Главная</a></li>
+            <li><a href="restaurants.html">Рестораны</a></li>
+            <li><a href="orders.html">Мои заказы</a></li>
+            <li><a href="profile.html">Профиль</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> +7 (123) 456-7890</li>
+            <li><i class="fas fa-envelope"></i> support@foodorder.ru</li>
+            <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Примерная, 123</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Подписка</h3>
+          <p>Подпишитесь на рассылку, чтобы получать специальные предложения</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Ваш email">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 FoodOrder. Все права защищены.</p>
+        <div class="footer-links">
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Условия использования</a>
+        </div>
+      </div>
+    </div>
+
+<!-- Модальное окно выбора количества -->
+<div id="add-to-cart-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Выберите количество</h2>
+    <form id="quantity-form">
+      <label for="quantity">Количество:</label>
+      <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+      <button type="submit">Добавить в корзину</button>
+    </form>
+  </div>
+</div>
+  </footer>
+  <script src="js/auth.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/updateCartCount.js"></script>
+  <script src="js/search.js"></script>
+
+</body>
+</html>

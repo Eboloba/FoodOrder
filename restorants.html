@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodOrder - Главная</title>
+  <link rel="icon" href="https://i.yapx.ru/ZQD96.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/styleKyr.css">
+  <link rel="stylesheet" href="styles/toast.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-utensils"></i>
+          <span>FoodOrder</span>
+        </div>
+        
+        <nav class="main-nav">
+          <ul>
+            <li><a href="restorants.html" class="active"><i class="fas fa-home"></i> Главная</a></li>
+            <li><a href="search.html"><i class="fas fa-utensils"></i> Блюда</a></li>
+            <li><a href="orders.html"><i class="fas fa-receipt"></i> Мои заказы</a></li>
+            <li><a href="profile.html"><i class="fas fa-user"></i> Профиль</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <div class="cart-icon">
+            <a href="cart.html">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </a>
+          </div>
+          
+          <div class="user-dropdown">
+            <button class="user-btn">
+              <i class="fas fa-user"></i>
+              <span id="username-display">Пользователь</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu">
+              <a href="profile.html"><i class="fas fa-user-cog"></i> Настройки</a>
+              <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основной контент -->
+  <main class="main-content">
+    <section class="hero-section">
+      <div class="container">
+        <div class="hero-content">
+          <h1>Закажите любимую еду с самовывозом</h1>
+          <p>Быстро, вкусно и с обширным выбором блюд</p>
+          
+          <div class="search-box">
+            <input class="search-input" type="text" placeholder="Что бы вы хотели заказать?">
+            <button type="button" class="search-button"><i class="fas fa-search"></i> Найти</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<section class="categories-section">
+  <div class="container">
+    <h2 class="section-title">Категории</h2>
+    <div class="categories-grid">
+      <a href="#" class="category-card" data-category="pizza">
+        <div class="category-icon pizza">
+          <i class="fas fa-pizza-slice"></i>
+        </div>
+        <span>Пицца</span>
+      </a>
+      
+      <a href="#" class="category-card" data-category="sushi">
+        <div class="category-icon sushi">
+          <i class="fas fa-fish"></i>
+        </div>
+        <span>Суши</span>
+      </a>
+      
+      <a href="#" class="category-card" data-category="burger">
+        <div class="category-icon burger">
+          <i class="fas fa-hamburger"></i>
+        </div>
+        <span>Бургеры</span>
+      </a>
+      
+      <a href="#" class="category-card" data-category="salad">
+        <div class="category-icon salad">
+          <i class="fas fa-leaf"></i>
+        </div>
+        <span>Салаты</span>
+      </a>
+      
+      <a href="#" class="category-card" data-category="dessert">
+        <div class="category-icon dessert">
+          <i class="fas fa-ice-cream"></i>
+        </div>
+        <span>Десерты</span>
+      </a>
+      
+      <a href="#" class="category-card" data-category="drink">
+        <div class="category-icon drink">
+          <i class="fas fa-wine-glass-alt"></i>
+        </div>
+        <span>Напитки</span>
+      </a>
+    </div>
+  </div>
+</section>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>FoodOrder</h3>
+          <p>Сервис доставки еды №1 в вашем городе. Быстро, вкусно и удобно!</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Меню</h3>
+          <ul>
+            <li><a href="main.html">Главная</a></li>
+            <li><a href="restaurants.html">Рестораны</a></li>
+            <li><a href="orders.html">Мои заказы</a></li>
+            <li><a href="profile.html">Профиль</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> +7 (123) 456-7890</li>
+            <li><i class="fas fa-envelope"></i> support@foodorder.ru</li>
+            <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Примерная, 123</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Подписка</h3>
+          <p>Подпишитесь на рассылку, чтобы получать специальные предложения</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Ваш email">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 FoodOrder. Все права защищены.</p>
+        <div class="footer-links">
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Условия использования</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/auth.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/updateCartCount.js"></script>
+  <script src="js/search.js"></script>
+</body>
+</html>

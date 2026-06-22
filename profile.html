@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodOrder - Профиль</title>
+  <link rel="icon" href="https://i.yapx.ru/ZQD96.png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="styles/profile.css">
+  <link rel="stylesheet" href="styles/toast.css">
+</head>
+<body>
+  <!-- Шапка -->
+  <header class="main-header">
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          <i class="fas fa-utensils"></i>
+          <span>FoodOrder</span>
+        </div>
+        
+        <nav class="main-nav">
+          <ul>
+            <li><a href="restorants.html"><i class="fas fa-home"></i> Главная</a></li>
+            <li><a href="search.html"><i class="fas fa-utensils"></i> Блюда</a></li>
+            <li><a href="orders.html"><i class="fas fa-receipt"></i> Мои заказы</a></li>
+            <li><a href="profile.html" class="active"><i class="fas fa-user"></i> Профиль</a></li>
+          </ul>
+        </nav>
+        
+        <div class="header-actions">
+          <div class="cart-icon">
+            <a href="cart.html">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-count" id="cart-count">0</span>
+            </a>
+          </div>
+          
+          <div class="user-dropdown">
+            <button class="user-btn">
+                <i class="fas fa-user"></i>
+              <span id="username-display">Пользователь</span>
+              <i class="fas fa-chevron-down"></i>
+            </button>
+            <div class="dropdown-menu">
+              <a href="profile.html"><i class="fas fa-user-cog"></i> Настройки</a>
+              <a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Выйти</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Основной контент профиля -->
+  <main class="main-content">
+    <div class="container">
+      <section class="profile-section">
+        <h1 class="section-title">Мой профиль</h1>
+        
+        <div class="profile-card">
+          <div class="profile-header">
+            <div class="profile-avatar">
+              <img src="C:\Users\EvaRiss_\121212\Сайт курсач\images\User_font_awesome.svg.png" alt="Аватар" id="user-avatar">
+            </div>
+            <h2 id="user-fullname">Иван Иванов</h2>
+          </div>
+          
+          <div class="profile-details">
+            <div class="detail-row">
+              <div class="detail-label">
+                <i class="fas fa-envelope"></i> Email:
+              </div>
+              <div class="detail-value" id="user-email">user@example.com</div>
+            </div>
+            
+            <div class="detail-row">
+              <div class="detail-label">
+                <i class="fas fa-phone"></i> Телефон:
+              </div>
+              <div class="detail-value" id="user-phone">+7 (123) 456-7890</div>
+            </div>
+          
+          <div class="profile-actions">
+            <button class="edit-profile-btn">
+              <i class="fas fa-edit"></i> Редактировать профиль
+            </button>
+            <button class="change-password-btn">
+              <i class="fas fa-lock"></i> Сменить пароль
+            </button>
+          </div>
+        </div>
+        
+        <div class="profile-orders">
+          <h2 class="section-subtitle">Мои последние заказы</h2>
+          <div class="orders-list" id="orders-list">
+            <!-- Заказы будут загружаться динамически -->
+            <div class="empty-orders">
+              <i class="fas fa-shopping-bag"></i>
+              <p>У вас пока нет заказов</p>
+              <a href="search.html" class="order-now-btn">Заказать сейчас</a>
+            </div>
+          </div>
+        </div>
+        
+      </section>
+    </div>
+
+<!-- Модальное окно редактирования профиля -->
+<div id="edit-profile-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Редактировать профиль</h2>
+    <form id="edit-profile-form">
+      <div class="input-group">
+        <i class="fas fa-user icon"></i>
+        <input type="text" id="edit-fullname" placeholder="Ваш новый Ник" required>
+        <div class="error-message" id="fullname-error"></div>
+      </div>
+      <div class="input-group">
+        <i class="fas fa-phone icon"></i>
+        <input type="tel" id="edit-phone" placeholder="Телефон">
+        <div class="error-message" id="phone-error"></div>
+      </div>
+      <button type="submit" class="auth-btn">Сохранить изменения</button>
+    </form>
+  </div>
+</div>
+
+<!-- Модальное окно смены пароля -->
+<div id="change-password-modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2>Сменить пароль</h2>
+    <form id="change-password-form">
+      <div class="input-group">
+        <i class="fas fa-lock icon"></i>
+        <input type="password" id="old-password" placeholder="Старый пароль" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-lock icon"></i>
+        <input type="password" id="new-password" placeholder="Новый пароль" required>
+      </div>
+
+      <div class="input-group">
+        <i class="fas fa-lock icon"></i>
+        <input type="password" id="confirm-password" placeholder="Подтвердите новый пароль" required>
+      </div>
+
+      <button type="submit" class="auth-btn">Сменить пароль</button>
+    </form>
+  </div>
+</div>
+  </main>
+
+  <!-- Подвал -->
+  <footer class="main-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h3>FoodOrder</h3>
+          <p>Сервис доставки еды №1 в вашем городе. Быстро, вкусно и удобно!</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-vk"></i></a>
+            <a href="#"><i class="fab fa-telegram"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Меню</h3>
+          <ul>
+            <li><a href="main.html">Главная</a></li>
+            <li><a href="restaurants.html">Рестораны</a></li>
+            <li><a href="orders.html">Мои заказы</a></li>
+            <li><a href="profile.html">Профиль</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Контакты</h3>
+          <ul>
+            <li><i class="fas fa-phone"></i> +7 (123) 456-7890</li>
+            <li><i class="fas fa-envelope"></i> support@foodorder.ru</li>
+            <li><i class="fas fa-map-marker-alt"></i> г. Москва, ул. Примерная, 123</li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Подписка</h3>
+          <p>Подпишитесь на рассылку, чтобы получать специальные предложения</p>
+          <form class="subscribe-form">
+            <input type="email" placeholder="Ваш email">
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2025 FoodOrder. Все права защищены.</p>
+        <div class="footer-links">
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Условия использования</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/auth.js"></script>
+  <script src="js/user.js"></script>
+  <script src="js/profile.js"></script>
+  <script src="js/updateCartCount.js"></script>
+</body>
+</html>
